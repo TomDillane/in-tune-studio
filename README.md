@@ -38,5 +38,16 @@ In Tune Studio is a a recording studio that can be booked by music artists on a 
 + Superuser role for site owner to update products.
 + On line shopping facility.
 
+### Structure Plane
+
++ The site will have a home page with information on the studio.
++ The site will have a shop page with a list of option.
++ Anonymous and registered users can buy services.
++ Anonymous users can register.
++ Register and Login options will only be available to anonymous users.
++ Log out option will only be available to signed in users.
++ Site owner will be able to add, update and delete products.
+
+
 
 
