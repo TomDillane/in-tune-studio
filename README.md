@@ -48,6 +48,8 @@ In Tune Studio is a a recording studio that can be booked by music artists on a 
 + Log out option will only be available to signed in users.
 + Site owner will be able to add, update and delete products.
 
+## Credits
 
+Photo by RODNAE Productions from Pexels for Home page.
 
 

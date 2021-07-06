@@ -1,4 +1,13 @@
-.home-head {
-    background-color: red;
-    padding-top: 150px;
+header {
+    background-color: #353333;
+}
+
+.nav-link {
+    color: #cfcbcb;
+    font-family: 'Russo One', sans-serif;
+}
+
+body {
+    background: url('/media/home.jpg') no-repeat center center fixed;
+    background-size: cover;
 }
