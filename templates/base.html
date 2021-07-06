@@ -45,7 +45,7 @@
 <body>
     <header class="container-fluid fixed-top">
         <a href="{% url 'home' %}" class="nav-link text-center">
-            <h3>In Tune Studio</h3>
+            <h3><i class="fas fa-music"></i> &nbsp;In Tune Studio &nbsp;<i class="fas fa-music"></i></h3>
         </a>
         <div class="row mt-4">
             <div class="col-4">
@@ -63,10 +63,11 @@
                         <div><i class="fas fa-shopping-cart"></i></div>
                         <h5>
                             {% if grand_total %}
-                            ${{ grand_total|floatformat:2 }}
+                            €{{ grand_total|floatformat:2 }}
                             {% else %}
-                            $0.00
+                            €0.00
                             {% endif %}
+                            Total
                         </h5>
                     </div>
                 </a>
@@ -107,7 +108,35 @@
 
     {% block postloadjs %}
     {% endblock %}
-
+    <footer>
+		<div class="container-fluid fixed-bottom">
+			<div class="row text-center footer-content">
+                <div class="col-3">
+                    <a class="sm-link" href="https://www.facebook.com" target="_blank">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a class="sm-link" href="https://www.twitter.com" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a class="sm-link" href="https://www.youtube.com" target="_blank">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a class="sm-link" href="https://www.instagram.com" target="_blank">
+                        <i class="fab fa-instagram-square"></i>
+                    </a>
+                </div>				
+				<div class="col-12 copyright">
+					<small class="copyright-content">&copy; Copyright 2021 - In Tune Studio</small>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 
 </html>

@@ -7,7 +7,25 @@ header {
     font-family: 'Russo One', sans-serif;
 }
 
+.nav-link:hover {
+    color: #ce1616;
+}
+
 body {
     background: url('/media/home.jpg') no-repeat center center fixed;
     background-size: cover;
+    height: calc(100vh - 300px);
+}
+
+.footer-content {
+    background-color: #353333;
+    padding-top: 15px;
+}
+
+.sm-link {
+    color: #cfcbcb;
+}
+
+.sm-link:hover {
+    color: #ce1616;
 }
