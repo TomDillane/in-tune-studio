@@ -44,9 +44,14 @@ body {
 
 .product-page {
     margin-top: 200px;
+    margin-bottom: 100px;
 }
 
 .image-holder {
-    height: 50vh;
+    height: 500px;
     width: auto;
+}
+
+.card-shade {
+    background-color: #353333;
 }

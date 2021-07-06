@@ -4,18 +4,22 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid product-page">
+
     <div class="row">
         {% for product in products %}
         <div class="col-12 col-md-4">
-            {{ product.name }}
-            
-                <img class="image-holder" src="{{ product.image.url }}" alt="">
-            
-            {{ product.description }}
-            {{ product.price }}
+            <div class="card">
+                <div class="card-body text-center card-shade">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <img src="{{ product.image.url }}" class="card-img-top image-holder" alt="...">
+                    <p class="card-text">{{ product.description }}</p>
+                    <a href="#" class="btn btn-primary">{{ product.price }}</a>
+                </div>
+            </div>
         </div>
         {% endfor %}
     </div>
+</div>
 </div>
 
 {% endblock %}
