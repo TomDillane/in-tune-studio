@@ -38,13 +38,13 @@ body {
 	top: 0;
 	left: 0;
 	position: fixed;
-	background: white;
+	background: #cfcbcb;
 	z-index: -1;
 }
 
 .product-page {
     margin-top: 200px;
-    margin-bottom: 100px;
+    padding-bottom: 60px;
 }
 
 .image-holder {
@@ -54,4 +54,5 @@ body {
 
 .card-shade {
     background-color: #353333;
+    color: #cfcbcb;
 }
