@@ -19,7 +19,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -49,16 +49,16 @@
         </a>
         <div class="row mt-4">
             <div class="col-4">
-                <a href="#" class="nav-link">
+                <a href="{% url 'products' %}" class="nav-link">
                     <div class="text-center">
-                    <div><i class="fas fa-headphones"></i></div>
-                    <h5>Book Studio</h5>
-                </div>
+                        <div><i class="fas fa-headphones"></i></div>
+                        <h5>Book Studio</h5>
+                    </div>
                 </a>
             </div>
             <div class="col-4">
                 <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                    href="">
+                    href="{% url 'view_cart' %}">
                     <div class="text-center">
                         <div><i class="fas fa-shopping-cart"></i></div>
                         <h5>
@@ -109,8 +109,8 @@
     {% block postloadjs %}
     {% endblock %}
     <footer>
-		<div class="container-fluid fixed-bottom">
-			<div class="row text-center footer-content">
+        <div class="container-fluid fixed-bottom">
+            <div class="row text-center footer-content">
                 <div class="col-3">
                     <a class="sm-link" href="https://www.facebook.com" target="_blank">
                         <i class="fab fa-facebook"></i>
@@ -130,13 +130,13 @@
                     <a class="sm-link" href="https://www.instagram.com" target="_blank">
                         <i class="fab fa-instagram-square"></i>
                     </a>
-                </div>				
-				<div class="col-12 copyright">
-					<small class="copyright-content">&copy; Copyright 2021 - In Tune Studio</small>
-				</div>
-			</div>
-		</div>
-	</footer>
+                </div>
+                <div class="col-12 copyright">
+                    <small class="copyright-content">&copy; Copyright 2021 - In Tune Studio</small>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
