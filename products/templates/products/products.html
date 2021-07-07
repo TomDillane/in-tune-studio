@@ -10,7 +10,9 @@
             <div class="card mb-3">
                 <div class="card-body text-center card-shade">
                     <h5 class="card-title">{{ product.name }}</h5>
-                    <img src="{{ product.image.url }}" class="card-img-top image-holder" alt="...">
+                    <a href="{% url 'product_detail' product.id %}">
+                        <img src="{{ product.image.url }}" class="card-img-top image-holder" alt="{{ product.name }}">
+                    </a>
                     <p class="card-text">{{ product.description }}</p>
                     <a href="#" class="btn btn-primary">{{ product.price }}</a>
                 </div>
