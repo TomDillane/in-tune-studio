@@ -24,9 +24,9 @@
                 <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
-                        <div class="col-12">
-                            <div class="input-group date" data-provide="datepicker" id="datepicker">
-                                <input type="text" class="form-control">
+                        <div class="col-12 col-md-3">
+                            <div class="input-group date" data-provide="datepicker">
+                                <input type="text" class="form-control" id="datepicker" name="date">
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-th"></span>
                                 </div>
@@ -58,7 +58,7 @@
 {{ block.super }}
 <script type="text/javascript">
     $('.datepicker').datepicker({
-      format: 'mm-dd-yyyy'
-    });s
+        format: 'mm-dd-yyyy'
+    });
 </script>
 {% endblock %}

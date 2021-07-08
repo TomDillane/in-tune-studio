@@ -10,10 +10,11 @@ def view_cart(request):
 def add_to_cart(request, item_id):
     """ Add items to the cart """
 
+    date = request.POST.get('date')
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
     
-    cart[item_id] = item_id
+    cart[item_id] = date
 
     request.session['cart'] = cart
     print(request.session['cart'])
