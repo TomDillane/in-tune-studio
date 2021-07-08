@@ -5,25 +5,60 @@
 <div class="overlay"></div>
 <div class="container-fluid product-page">
     <div class="row">
-        
-        <div class="col-12 col-md-6">
+
+        <div class="col-12 col-md-3 offset-md-2">
             <div class="card mb-3">
                 <div class="image-container">
                     <a href="{{ product.image.url }}" target="_blank">
-                        <img src="{{ product.image.url }}" class="card-img-top image-holder" alt="{{ product.name }}">
+                        <img src="{{ product.image.url }}" class="card-img-top image-holder-det"
+                            alt="{{ product.name }}">
                     </a>
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 offset-md-1">
             <div class="product-details">
                 <p>{{ product.name }}</p>
-                <p>{{ product.price }}</p>
+                <p>€{{ product.price }}</p>
                 <p>{{ product.description }}</p>
+                <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="col-12">
+                            <div class="input-group date" data-provide="datepicker" id="datepicker">
+                                <input type="text" class="form-control">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-th"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 mt-5">
+                                <span class="icon">
+                                    <i class="fas fa-chevron-left"></i>
+                                </span>
+                                <span class="text-uppercase">Keep Shopping</span>
+                            </a>
+                            <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5"
+                                value="Add to Cart">
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
 </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    $('.datepicker').datepicker({
+      format: 'mm-dd-yyyy'
+    });s
+</script>
 {% endblock %}
