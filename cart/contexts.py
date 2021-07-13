@@ -23,10 +23,22 @@ def cart_contents(request):
             num = v
         item_price = product.price * num
 
+        
+        for x, y in date.items():
+            for q, p in y.items():
+                print(p)
+                newdate1 = p
+        print(newdate1)               
+        
+        
+        for x, y in date.items():
+            newdate = y
+
+
         # product_count = 3
         cart_items.append({
             'item_id': item_id,
-            'date': date,
+            'date': newdate1,
             'product': product,
             'num': num,
             'item_price': item_price,
@@ -42,3 +54,4 @@ def cart_contents(request):
     }
 
     return context
+
