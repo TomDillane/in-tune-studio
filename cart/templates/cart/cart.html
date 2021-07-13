@@ -6,8 +6,7 @@
 <div class="container cart-items-page">
         <div class="row">
                 <div class="col">
-
-                        <h2>Cart Items</h2>
+                        <h2 class="text-center">Cart Items</h2>
                         <hr>
                 </div>
         </div>
@@ -18,7 +17,7 @@
                                 <table class="table">
                                         <thead>
                                                 <tr>
-                                                        <th>Room</th>
+                                                        <th class="p-3">Room</th>
                                                         <th>Price</th>
                                                         <th>Date</th>
                                                         <th>Quantity</th>
@@ -47,7 +46,7 @@
                                         <tr>
                                                 <td colspan="5" class="pt-5 text-center">
                                                         <h4 class="mt-4"><strong>Grand Total:
-                                                                        ${{ grand_total|floatformat:2 }}</strong></h4>
+                                                                        €{{ grand_total|floatformat:2 }}</strong></h4>
                                                 </td>
                                         </tr>
                                         <tr>
