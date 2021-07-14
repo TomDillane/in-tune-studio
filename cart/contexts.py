@@ -30,6 +30,7 @@ def cart_contents(request):
                 # 'num': qty,
                 'item_price': line_total,
             })
+            print(cart_items)
         
 
         for k, v in count.items():

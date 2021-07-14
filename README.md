@@ -50,9 +50,9 @@ In Tune Studio is a a recording studio that can be booked by music artists on a 
 
 ## Credits
 
-Photo by RODNAE Productions from Pexels for Home page.
-Photo by Wallace Chuck from Pexels for room 1 products.
-Photo by cottonbro from Pexels for romm 2 products.
-Photo by RODNAE Productions from Pexels for room 3 products.
++ Photo by RODNAE Productions from Pexels for Home page.
++ Photo by Wallace Chuck from Pexels for room 1 products.
++ Photo by cottonbro from Pexels for room 2 products.
++ Photo by RODNAE Productions from Pexels for room 3 products.
 
 

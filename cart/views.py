@@ -34,5 +34,5 @@ def add_to_cart(request, item_id):
 
 
     print(request.session['cart'])
-    # print(quantity)
+    print(cart)
     return redirect(redirect_url)

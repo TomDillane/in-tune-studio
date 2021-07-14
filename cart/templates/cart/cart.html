@@ -6,21 +6,21 @@
 <div class="container cart-items-page">
         <div class="row">
                 <div class="col">
-                        <h2 class="text-center">Cart Items</h2>
+                        <h2 class="text-center">Your Cart</h2>
                         <hr>
                 </div>
         </div>
         <div class="row">
                 <div class="col">
                         {% if cart_items %}
-                        <div class="table-responsive rounded">
+                        <div class="table-responsive rounded cart-table">
                                 <table class="table">
                                         <thead>
-                                                <tr>
+                                                <tr class="cart-head">
+                                                        <th class="p-3">Name</th>
                                                         <th class="p-3">Room</th>
-                                                        <th>Price</th>
-                                                        <th>Date</th>
-                                                        <th>Total</th>
+                                                        <th class="p-3">Date</th>
+                                                        <th class="p-3">Total</th>
                                                 </tr>
                                         </thead>
                                         {% for item in cart_items %}
@@ -29,7 +29,8 @@
                                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                                 </td>
                                                 <td class="py-3">
-                                                        <p class="my-0"><strong>€{{ item.product.price }}</strong></p>
+                                                        <img class="img-fluid rounded cart-im-size" src="{{ item.product.image.url }}">
+                                                       <!-- <p class="my-0"><strong>€{{ item.product.price }}</strong></p> -->
                                                 </td>
                                                 <td class="py-3">
                                                         <p class="my-0"><strong>{{ item.date }}</strong></p>
@@ -41,18 +42,21 @@
                                         {% endfor %}
                                         <tr>
                                                 <td colspan="5" class="pt-5 text-center">
-                                                        <h4 class="mt-4"><strong>Grand Total:
+                                                        <h4 class="mt-2"><strong>Grand Total:
                                                                         €{{ grand_total|floatformat:2 }}</strong></h4>
                                                 </td>
                                         </tr>
                                         <tr>
-                                                <td colspan="5" class="text-center">
+                                                <td colspan="5" class="text-center cart-nav">
                                                         <a href="{% url 'products' %}"
                                                                 class="btn btn-outline-black rounded-0 btn-lg">
                                                                 <span class="icon">
                                                                         <i class="fas fa-headphones"></i>
                                                                 </span>
-                                                                <span class="text-uppercase">Studio Booking</span>
+                                                                <span class="text-uppercase">Studio Book</span>
+                                                                <span class="icon">
+                                                                        <i class="fas fa-headphones"></i>
+                                                                </span>
                                                         </a>
                                                         <a href="" class="btn btn-black rounded-0 btn-lg">
                                                                 <span class="text-uppercase">Secure Checkout</span>

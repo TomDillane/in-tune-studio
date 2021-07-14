@@ -60,6 +60,11 @@ body {
 
 /* Cart */
 
+.cart-head {
+    background-color: #353333;
+    color: #cfcbcb
+}
+
 .cart-items-page {
     margin-top: 200px;
     color: #353333;
@@ -67,5 +72,23 @@ body {
 }
 
 .cart-back:hover {
+    color: #ce1616;
+}
+
+.cart-im-size {
+    max-height: 10vh;
+    width: auto;
+}
+
+.cart-table {
+    padding-bottom: 50px;
+}
+
+.cart-nav > a {
+    background-color: #353333;
+    color: #cfcbcb
+}
+
+.cart-nav > a:hover {
     color: #ce1616;
 }
