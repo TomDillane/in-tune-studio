@@ -14,6 +14,7 @@ def add_to_cart(request, item_id):
     """ Add items to cart """
 
     date = request.POST.get('date')
+    qty = 0
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
     # cart[item_id] = date
@@ -21,7 +22,7 @@ def add_to_cart(request, item_id):
     if item_id in list(cart.keys()):
         #cart[item_id]['items_by_date'][bookdate] += date
         if date in cart[item_id]['items_by_date'].keys():
-            cart[item_id]['items_by_date'][date] = date
+            cart[item_id]['items_by_date'][date] += date
         else:
             cart[item_id]['items_by_date'][date] = date
     else:
@@ -33,5 +34,5 @@ def add_to_cart(request, item_id):
 
 
     print(request.session['cart'])
-    # print(count)
+    # print(quantity)
     return redirect(redirect_url)
