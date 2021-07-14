@@ -29,8 +29,9 @@
                                                         <p class="my-0"><strong>{{ item.product.name }}</strong></p>
                                                 </td>
                                                 <td class="py-3">
-                                                        <img class="img-fluid rounded cart-im-size" src="{{ item.product.image.url }}">
-                                                       <!-- <p class="my-0"><strong>€{{ item.product.price }}</strong></p> -->
+                                                        <img class="img-fluid rounded cart-im-size"
+                                                                src="{{ item.product.image.url }}">
+                                                        <!-- <p class="my-0"><strong>€{{ item.product.price }}</strong></p> -->
                                                 </td>
                                                 <td class="py-3">
                                                         <p class="my-0"><strong>{{ item.date }}</strong></p>
@@ -40,25 +41,21 @@
                                                 </td>
                                         </tr>
                                         {% endfor %}
+                                        <!--
                                         <tr>
                                                 <td colspan="5" class="pt-5 text-center">
                                                         <h4 class="mt-2"><strong>Grand Total:
                                                                         €{{ grand_total|floatformat:2 }}</strong></h4>
                                                 </td>
                                         </tr>
+                                        
                                         <tr>
-                                                <td colspan="5" class="text-center cart-nav">
-                                                        <a href="{% url 'products' %}"
-                                                                class="btn btn-outline-black rounded-0 btn-lg">
-                                                                <span class="icon">
-                                                                        <i class="fas fa-headphones"></i>
-                                                                </span>
-                                                                <span class="text-uppercase">Studio Book</span>
-                                                                <span class="icon">
-                                                                        <i class="fas fa-headphones"></i>
-                                                                </span>
-                                                        </a>
-                                                        <a href="" class="btn btn-black rounded-0 btn-lg">
+                                                <td colspan="3" class=" cart-nav">
+                                                        <p>Grand Total:
+                                                                €{{ grand_total|floatformat:2 }}</p>
+                                                        </td>
+                                                        <td colspan="3">
+                                                        <a href="" class="btn btn-black rounded-0">
                                                                 <span class="text-uppercase">Secure Checkout</span>
                                                                 <span class="icon">
                                                                         <i class="fas fa-lock"></i>
@@ -66,7 +63,42 @@
                                                         </a>
                                                 </td>
                                         </tr>
+                                        -->
                                 </table>
+                                <div class="row">
+                                        <div class="col-12 text-center">
+                                                <a href="" class="btn btn-black rounded-5 secure-outline">
+                                                        <span>€{{ grand_total|floatformat:2 }}</span>
+                                                        <span class="text-uppercase">| Proceed To Pay</span>
+                                                        <span class="icon">
+                                                                <i class="fas fa-lock"></i>
+                                                        </span>
+                                                </a>
+                                        </div>
+                                </div>
+                                <!--
+                                        <div class="col-6 col-md-3">
+                                                <p class="mt-2"><strong>Grand Total:
+                                                        €{{ grand_total|floatformat:2 }}</strong></p>
+                                                
+                                        </div>
+                                        -->
+
+                                <div class="row text-center pb-3">
+                                        <div class="text-center cart-nav">
+                                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0">
+                                                        <span class="icon">
+                                                                <i class="fas fa-headphones"></i>
+                                                        </span>
+                                                        <span>Book Studio</span>
+                                                        <span class="icon">
+                                                                <i class="fas fa-headphones"></i>
+                                                        </span>
+
+                                                </a>
+                                        </div>
+                                </div>
+
                         </div>
                         {% else %}
                         <p class="lead mb-5">Your cart is empty.</p>

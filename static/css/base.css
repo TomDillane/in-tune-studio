@@ -92,3 +92,12 @@ body {
 .cart-nav > a:hover {
     color: #ce1616;
 }
+
+.secure-outline {
+    border-color: #353333;
+}
+
+.secure-outline:hover {
+    color: #ce1616;
+    background-color: #353333;
+}
