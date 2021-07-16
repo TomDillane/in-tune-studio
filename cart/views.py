@@ -19,26 +19,37 @@ def add_to_cart(request, item_id):
     cart = request.session.get('cart', {})
     # cart[item_id] = date
 
+    
     if item_id in list(cart.keys()):
-        if date in cart.keys():
+        if date in cart[item_id]['items_by_date'].values():
+            cart[item_id]['items_by_date'][date] = date
+        # cart[item_id] += date
+        else:
+            cart[item_id]['items_by_date'][date] = date
+    else:
+        cart[item_id] = {'items_by_date': {date: date}}
+
+    request.session['cart'] = cart
+    
+    """
+    if item_id in list(cart.keys()):
+        if date in cart[item_id]['items_by_date'].values():
+            cart[item_id]['items_by_date'][date] = date
+        # cart[item_id] += date
+        else:
+            cart[item_id]['items_by_date'][date] = date
+    else:
+        cart[item_id] = {'items_by_date': {date: date}}
+
+    request.session['cart'] = cart
+
+    if date in cart.values():
             cart[item_id] += date
         # cart[item_id] += date
         else:
             cart[item_id] = date
     else:
         cart[item_id] = date
-
-    request.session['cart'] = cart
-    
-    """
-    if item_id in list(cart.keys()):
-        #cart[item_id]['items_by_date'][bookdate] += date
-        if date in cart[item_id]['items_by_date'].keys():
-            cart[item_id]['items_by_date'][date] += date
-        else:
-            cart[item_id]['items_by_date'][date] = date
-    else:
-        cart[item_id] = {'items_by_date': {date: date}}
 
     request.session['cart'] = cart
     """
