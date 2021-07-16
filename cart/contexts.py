@@ -16,21 +16,21 @@ def cart_contents(request):
     cart = request.session.get('cart', {})
 
     for item_id, item_data in cart.items():
-        for date, qty in item_data['items_by_date'].items():
-            product = get_object_or_404(Product, pk=item_id)
-            line_total = product.price
-            total += line_total
-            count = Counter(item_id)
-            qty = 1
+        # for date, qty in item_data['items_by_date'].items():
+        product = get_object_or_404(Product, pk=item_id)
+        line_total = product.price
+        total += line_total
+        count = Counter(item_id)
+        date = date
 
-            cart_items.append({
-                'item_id': item_id,
-                'date': date,
-                'product': product,
-                # 'num': qty,
-                'item_price': line_total,
-            })
-            print(cart_items)
+        cart_items.append({
+            'item_id': item_id,
+            'date': date,
+            'product': product,
+            # 'num': qty,
+            'item_price': line_total,
+        })
+        # print(cart_items)
         
 
         for k, v in count.items():

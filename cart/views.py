@@ -18,7 +18,19 @@ def add_to_cart(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
     # cart[item_id] = date
+
+    if item_id in list(cart.keys()):
+        if date in cart.keys():
+            cart[item_id] += date
+        # cart[item_id] += date
+        else:
+            cart[item_id] = date
+    else:
+        cart[item_id] = date
+
+    request.session['cart'] = cart
     
+    """
     if item_id in list(cart.keys()):
         #cart[item_id]['items_by_date'][bookdate] += date
         if date in cart[item_id]['items_by_date'].keys():
@@ -29,10 +41,11 @@ def add_to_cart(request, item_id):
         cart[item_id] = {'items_by_date': {date: date}}
 
     request.session['cart'] = cart
+    """
 
     # count = {k: Counter(k) for k, v in request.session['cart'].items()}
 
 
     print(request.session['cart'])
-    print(cart)
+    # print(cart)
     return redirect(redirect_url)
