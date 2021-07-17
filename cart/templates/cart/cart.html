@@ -37,8 +37,13 @@
                                                         <p class="my-0"><strong>{{ item.date }}</strong></p>
                                                 </td>
                                                 <td class="py-3 w-25">
+                                                        <a href="{% url 'remove_from_cart' item.product.id %}" class="btn">Remove</a>
+                                                </td>
+<!--
+                                                <td class="py-3 w-25">
                                                         <p class="my-0"><strong>€{{ item.item_price }}</strong></p>
                                                 </td>
+                                        -->
                                         </tr>
                                         {% endfor %}
                                         <!--

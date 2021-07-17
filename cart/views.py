@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from collections import Counter
 
 # Create your views here.
@@ -17,13 +17,12 @@ def add_to_cart(request, item_id):
     qty = 0
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
-    # cart[item_id] = date
 
-    
+
     if item_id in list(cart.keys()):
         if date in cart[item_id]['items_by_date'].values():
             cart[item_id]['items_by_date'][date] = date
-        # cart[item_id] += date
+
         else:
             cart[item_id]['items_by_date'][date] = date
     else:
@@ -31,32 +30,33 @@ def add_to_cart(request, item_id):
 
     request.session['cart'] = cart
     
-    """
-    if item_id in list(cart.keys()):
-        if date in cart[item_id]['items_by_date'].values():
-            cart[item_id]['items_by_date'][date] = date
-        # cart[item_id] += date
-        else:
-            cart[item_id]['items_by_date'][date] = date
-    else:
-        cart[item_id] = {'items_by_date': {date: date}}
-
-    request.session['cart'] = cart
-
-    if date in cart.values():
-            cart[item_id] += date
-        # cart[item_id] += date
-        else:
-            cart[item_id] = date
-    else:
-        cart[item_id] = date
-
-    request.session['cart'] = cart
-    """
-
-    # count = {k: Counter(k) for k, v in request.session['cart'].items()}
-
 
     print(request.session['cart'])
-    # print(cart)
     return redirect(redirect_url)
+
+def remove_from_cart(request, item_id):
+    cart = request.session.get('cart', {})
+    for item_id in list(cart.keys()):
+        for date in list(cart[item_id]['items_by_date'].values()):
+            # date = cart[item_id]['items_by_date'][date]
+            cart.pop(date)
+            if not cart[item_id]['items_by_date']:
+                cart.pop(item_id)
+            print(date)
+    
+
+    request.session['cart'] = cart
+    return redirect(reverse('view_cart'))
+
+    
+
+
+
+    """
+    cart = request.session.get('cart', {})
+    date = request.POST.get('date')
+    cart.pop(item_id)
+
+    request.session['cart'] = cart
+    return redirect(reverse('view_cart'))
+    """
