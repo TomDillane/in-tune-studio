@@ -37,12 +37,63 @@ def add_to_cart(request, item_id):
 def remove_from_cart(request, item_id):
     cart = request.session.get('cart', {})
     print("Cart", cart)
-    print(item_id)
-    print('Request is ', request)
-    
-    print(cart(nested_dict.key))
-    # nested_dict["key"]
+    # print(cart[item_id]['items_by_date'])
+    # print('Request is ', request)
+    # print('item_date is', item_date)
+    date = request.POST.get('date-booked')
+    # print(date)
+    # datedict = list(cart[item_id]['items_by_date'].keys())
 
+    
+    if date in cart[item_id]['items_by_date'].values():
+        print(date)
+        print(cart[item_id]['items_by_date'].values())
+        del cart[item_id]['items_by_date'][date]
+        print(cart)
+
+
+        """
+        print(cart[item_id]['items_by_date'].values())
+        del dictom[date]
+
+        # del cart[item_id]['items_by_date'][key]
+        
+        """
+
+        """
+        if not cart[item_id]['items_by_date']:
+                    cart.pop(item_id)
+
+    """
+
+
+    """
+    if date in cart[item_id]['items_by_date'].values():
+        del cart[item_id]['items_by_date'][1]
+        if not cart[item_id]['items_by_date']:
+                    cart.pop(item_id)
+    """
+
+
+    # print(cart.items())
+    """
+    for k, v in cart.items():
+        # print(k)
+        # print(v)
+        for g, t in v.items():
+            print(t)
+            if date in t:
+                del cart[item_id]['items_by_date'][date]
+                if not cart[item_id]['items_by_date']:
+                    cart.pop(item_id)
+    """
+    """
+    for date in cart.items():
+        
+        del cart[item_id]['items_by_date'][date]
+        if not cart[item_id]['items_by_date']:
+            cart.pop(item_id)
+    """
     # del cart[item_id]['items_by_date']['07/15/2021']
 
 

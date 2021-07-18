@@ -36,10 +36,20 @@
                                                 <td class="py-3">
                                                         <p class="my-0"><strong>{{ item.date }}</strong></p>
                                                 </td>
+                                                <td class="py-3">
+                                                        <form class="form mt-0" action="{% url 'remove_from_cart' item.product.id %}" method="POST">
+                                                                {% csrf_token %}
+                                                                            <input type="hidden" class="form-control date-hide" value="{{ item.date }}" id="date-booked" name="date-booked">
+                                                                        <input type="submit" class="btn btn-black rounded-0 mt-0"
+                                                                            value="Remove">
+                                                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                                            </form>
+                                                </td>
+<!--
                                                 <td class="py-3 w-25">
                                                         <a href="{% url 'remove_from_cart' item.product.id %}" class="btn">Remove</a>
                                                 </td>
-<!--
+
                                                 <td class="py-3 w-25">
                                                         <p class="my-0"><strong>€{{ item.item_price }}</strong></p>
                                                 </td>
