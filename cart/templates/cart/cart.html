@@ -30,40 +30,28 @@
                                                 </td>
                                                 <td class="py-3">
                                                         <img class="img-fluid rounded cart-im-size"
-                                                                src="{{ item.product.image.url }}">
-                                                        <!-- <p class="my-0"><strong>€{{ item.product.price }}</strong></p> -->
+                                                                src="{{ item.product.image.url }}"
+                                                                alt="Picture of studio room.">
                                                 </td>
                                                 <td class="py-3">
                                                         <p class="my-0"><strong>{{ item.date }}</strong></p>
                                                 </td>
-                                                <td class="py-3 w-25">
-                                                        <p class="my-0"><strong>€{{ item.item_price }}</strong></p>
+                                                <td class="py-3">
+                                                        <form class="form mt-0"
+                                                                action="{% url 'remove_from_cart' item.product.id %}"
+                                                                method="POST">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" class="form-control date-hide"
+                                                                        value="{{ item.date }}" name="date-booked">
+                                                                <input type="submit"
+                                                                        class="btn btn-black rounded-5 mt-0 remove"
+                                                                        value="Remove">
+                                                                <input type="hidden" name="redirect_url"
+                                                                        value="{{ request.path }}">
+                                                        </form>
                                                 </td>
                                         </tr>
                                         {% endfor %}
-                                        <!--
-                                        <tr>
-                                                <td colspan="5" class="pt-5 text-center">
-                                                        <h4 class="mt-2"><strong>Grand Total:
-                                                                        €{{ grand_total|floatformat:2 }}</strong></h4>
-                                                </td>
-                                        </tr>
-                                        
-                                        <tr>
-                                                <td colspan="3" class=" cart-nav">
-                                                        <p>Grand Total:
-                                                                €{{ grand_total|floatformat:2 }}</p>
-                                                        </td>
-                                                        <td colspan="3">
-                                                        <a href="" class="btn btn-black rounded-0">
-                                                                <span class="text-uppercase">Secure Checkout</span>
-                                                                <span class="icon">
-                                                                        <i class="fas fa-lock"></i>
-                                                                </span>
-                                                        </a>
-                                                </td>
-                                        </tr>
-                                        -->
                                 </table>
                                 <div class="row">
                                         <div class="col-12 text-center">
@@ -76,14 +64,6 @@
                                                 </a>
                                         </div>
                                 </div>
-                                <!--
-                                        <div class="col-6 col-md-3">
-                                                <p class="mt-2"><strong>Grand Total:
-                                                        €{{ grand_total|floatformat:2 }}</strong></p>
-                                                
-                                        </div>
-                                        -->
-
                                 <div class="row text-center pb-3">
                                         <div class="text-center cart-nav">
                                                 <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0">

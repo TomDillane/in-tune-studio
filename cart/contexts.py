@@ -29,7 +29,7 @@ def cart_contents(request):
                 'product': product,
                 'item_price': line_total,
             })
-            print(cart_items)
+            # print(cart_items)
 
 
     grand_total = total
