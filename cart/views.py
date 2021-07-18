@@ -31,27 +31,45 @@ def add_to_cart(request, item_id):
     request.session['cart'] = cart
     
 
-    print(request.session['cart'])
+    # print(request.session['cart'])
     return redirect(redirect_url)
 
 def remove_from_cart(request, item_id):
     cart = request.session.get('cart', {})
-    for item_id in list(cart.keys()):
-        for date in list(cart[item_id]['items_by_date'].values()):
-            # date = cart[item_id]['items_by_date'][date]
-            cart.pop(date)
-            if not cart[item_id]['items_by_date']:
-                cart.pop(item_id)
-            print(date)
+    print("Cart", cart)
+    print(item_id)
+    print('Request is ', request)
     
+    print(cart(nested_dict.key))
+    # nested_dict["key"]
 
+    # del cart[item_id]['items_by_date']['07/15/2021']
+
+
+    """
+    if item_id in list(cart.keys()):
+        for t in cart[item_id]['items_by_date'].values():
+            for k, v in t():
+                print(k)
+    """
+    
+    # for item_id in list(cart.keys()):
+    # for key, date in cart.items():
+        # for a, b in date:
+        # print(date)
+    # for key, date in cart.items():
+        # date = cart[item_id][date]
+        # if date:
+        # del cart[item_id][date]
+        # if not cart[item_id]['items_by_date']:
+            # cart.pop(item_id)
+        
+    
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
 
+
     
-
-
-
     """
     cart = request.session.get('cart', {})
     date = request.POST.get('date')
