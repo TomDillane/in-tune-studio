@@ -102,3 +102,12 @@ body {
     background-color: #353333;
 }
 
+.remove {
+    border-color: #353333;
+}
+
+.remove:hover {
+    color: #ce1616;
+    background-color: #353333;
+}
+
