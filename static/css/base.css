@@ -30,6 +30,28 @@ body {
     color: #ce1616;
 }
 
+/* Toasts */
+
+.message-container {
+    z-index: 999;
+    position: fixed;
+    top: 165px;
+    right: 10px;    
+    color: #353333;
+    font-family: 'Otomanopee One', sans-serif;
+    font-size: small;
+}
+
+.close{
+    margin-left: 20px;
+}
+
+/*
+.toast-body {
+    color: #353333;
+    font-family: 'Otomanopee One', sans-serif;
+} */
+
 /* Products */
 
 .overlay {
