@@ -57,7 +57,7 @@ class OrderLineItem(models.Model):
                               related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False,
                                 on_delete=models.CASCADE)
-    room_date = models.IntegerField(null=False, blank=False, default=0)
+    room_date = models.DateField(null=False, blank=False)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
                                          null=False, blank=False,
                                          editable=False)
