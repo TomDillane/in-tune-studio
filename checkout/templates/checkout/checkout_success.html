@@ -27,7 +27,7 @@
                         <tr class="checkout-head">
                             <th class="p-3">Room</th>
                             <th class="p-3">Date</th>
-                            <th class="p-3">Price</th>
+                            <th class="p-3">Studio</th>
                         </tr>
                     </thead>
                     {% for item in order.lineitems.all %}
@@ -39,7 +39,8 @@
                             <p class="my-0">{{ item.room_date }}</p>
                         </td>
                         <td class="py-3">
-                            <p class="my-0">€{{ item.lineitem_total }}</p>
+                            <div class="col-4"><img src="{{ item.product.image.url }}" class="checkout-line-item"
+                                    alt="{{ item.product.name }}"></div>
                         </td>
                     </tr>
                     {% endfor %}
@@ -47,5 +48,6 @@
             </div>
         </div>
     </div>
-    {% endblock %}
 </div>
+    {% endblock %}
+
