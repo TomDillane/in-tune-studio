@@ -1,0 +1,80 @@
+
+.StripeElement,
+.stripe-style-input {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  background-color: #ececec;
+  box-shadow: 0 1px 3px 0 #353333;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 3px 0 #ececec;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #ececec !important;
+}
+
+.stripe-style-input::placeholder {
+    color: #979393;
+    font-size: small;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #979393 !important;
+    padding-top: 3px;
+    padding-bottom: 0;
+}
+
+select:valid {
+  padding-top: 3px;
+  padding-bottom: 0;
+} 
+
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+#payment-form .form-control,
+#card-element {
+    color: #353333;
+    border: 1px solid #353333;
+}
+
+.checkout-form {
+  padding-top: 170px;
+  padding-bottom: 70px;
+  color: #353333;
+  font-family: 'Otomanopee One', sans-serif;
+}
+
+.checkout-line-item {
+  height: 100px;
+  width: auto;
+}
+
+.back-to-book:hover,
+.complete:hover {
+  color: #ce1616;
+  background-color: #353333;
+}
+
+/* checkouot-success-page */
+
+.checkout-success-page {
+  margin-top: 200px;
+  color: #353333;
+  font-family: 'Otomanopee One', sans-serif;
+}
+
+.checkout-table {
+  padding-bottom: 50px;
+}
