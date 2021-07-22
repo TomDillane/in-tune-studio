@@ -35,7 +35,7 @@ class Order(models.Model):
         Update grand total for each line item addition
         """
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total')
-                                                    )['lineitem_total__sum']
+                                                    )['lineitem_total__sum'] or 0
         self.grand_total = self.order_total
         self.save()
 
@@ -57,7 +57,7 @@ class OrderLineItem(models.Model):
                               related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False,
                                 on_delete=models.CASCADE)
-    room_date = models.DateField(null=False, blank=False)
+    room_date = models.CharField(max_length=20, null=True, blank=True)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
                                          null=False, blank=False,
                                          editable=False)

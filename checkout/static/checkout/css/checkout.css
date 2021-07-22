@@ -1,0 +1,54 @@
+
+.StripeElement,
+.stripe-style-input {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  background-color: #cfcbcb;
+  box-shadow: 0 1px 3px 0 #353333;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 3px 0 #cfcbcb;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #cfcbcb !important;
+}
+
+.stripe-style-input::placeholder {
+    color: #353333;
+}
+
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+#payment-form .form-control,
+#card-element {
+    color: #353333;
+    border: 1px solid #353333;
+}
+
+/* Checkout Success */
+
+.checkout-success-page {
+  margin-top: 200px;
+  color: #353333;
+  font-family: 'Otomanopee One', sans-serif;
+}
+
+.checkout-table {
+  padding-bottom: 50px;
+}
+
+.checkout-form {
+  padding-top: 170px;
+  padding-bottom: 70px;
+}
