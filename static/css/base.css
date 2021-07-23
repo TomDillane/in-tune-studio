@@ -139,9 +139,34 @@ body {
 .auth-container {
     padding-top: 170px;
     padding-bottom: 70px;
+    font-family: 'Otomanopee One', sans-serif;
 }
 
 .profile-page {
     padding-top: 170px;
     padding-bottom: 70px;
+    font-family: 'Otomanopee One', sans-serif;
+}
+
+.allauth-form-inner-content button {
+    color: #353333;
+    margin-top: 10px;
+}
+
+.allauth-form-inner-content button:hover {
+    color: #ce1616;
+    background-color: #353333;
+}
+
+.allauth-form-inner-content a {
+	color: #ce1616;
+}
+
+.remove {
+    border-color: #353333;
+}
+
+.remove:hover {
+    color: #ce1616;
+    background-color: #353333;
 }

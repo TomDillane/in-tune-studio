@@ -6,15 +6,29 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container profile-page">
-        <div class="row">
-            <div class="col">
-                <hr>
-                <h2 class="logo-font mb-4 text-center">My Profile</h2>
-                <hr>
-            </div>
+<div class="overlay"></div>
+<div class="container profile-page">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4 text-center">My Profile</h2>
+            <hr>
         </div>
-        {{ profile }}
-        
-{% endblock %}
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <h5>Current Address Details</h5>
+            <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <hr>
+                <input type="submit" class="btn btn-black rounded-5 mt-0 remove" value="Update">
+            </form>
+        </div>
+        <div class="col-12 col-md-6">  
+            <h5>Order History</h5>
+            {{ orders }}
+        </div>
+    </div>
+
+    {% endblock %}
