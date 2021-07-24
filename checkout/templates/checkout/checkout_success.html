@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col">
             <hr>
-            <h2 class="logo-font mb-4 text-center">Thanks for your support!! <i class="fas fa-thumbs-up"></i></h2>
+            <h2 class="logo-font mb-4 text-center">Thanks for your purchase!! <i class="fas fa-thumbs-up"></i></h2>
             <hr>
             <p class="text-center">Booked by {{ order.full_name|title }} on {{ order.date }}</p>
             <p class="text-center">Your order information is below. A confirmation email will be sent to
@@ -46,6 +46,16 @@
                     {% endfor %}
                 </table>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-center">
+            <a href="{% url 'profile' %}" class="btn back-to-profile rounded-0 my-2">
+                <span class="icon mr-2">
+                    <i class="fas fa-user"></i>
+                </span>
+                <span class="text-uppercase">Back to Profile</span>
+            </a>
         </div>
     </div>
 </div>

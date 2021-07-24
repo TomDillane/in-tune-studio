@@ -25,3 +25,11 @@
 #id_default_country option:first-child {
     color: #979393;
 }
+
+.order-hist-link {
+    color: #ce1616;
+}
+
+.order-hist-link:hover {
+    color: #353333;
+}

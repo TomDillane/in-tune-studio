@@ -136,11 +136,13 @@ body {
     font-family: 'Otomanopee One', sans-serif;
 }
 
+.auth-button,
 .allauth-form-inner-content button {
     color: #353333;
     margin-top: 10px;
 }
 
+.auth-button:hover,
 .allauth-form-inner-content button:hover {
     color: #ce1616;
     background-color: #353333;
@@ -148,6 +150,10 @@ body {
 
 .allauth-form-inner-content a {
 	color: #ce1616;
+}
+
+.allauth-form-inner-content a:hover {
+	color: #353333;
 }
 
 .remove {

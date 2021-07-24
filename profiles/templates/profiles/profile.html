@@ -33,19 +33,21 @@
                         <tr class="order-hist-head">
                             <th class="p-3">Order Number</th>
                             <th class="p-3">Date</th>
-                            <th class="p-3">Total</th>
+                            <th class="p-3">Order Amount</th>
                         </tr>
                     </thead>
                     {% for order in orders %}
                     <tr>
                         <td class="p-3 w-25">
-                            <p class="my-0">{{ order.order_number|truncatechars:4 }}</p>
+                            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}" class="order-hist-link">
+                                {{ order.order_number|truncatechars:6 }}
+                            </a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">{{ order.date|truncatechars:11 }}</p>
                         </td>
                         <td class="py-3">
-                            <p class="my-0">{{ order.grand_total }}</p>
+                            <p class="my-0">€{{ order.grand_total }}</p>
                         </td>
                     </tr>
                     {% endfor %}
