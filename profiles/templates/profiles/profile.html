@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container profile-page">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4 text-center">My Profile</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <h5>Current Address Details</h5>
+            <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <hr>
+                <input type="submit" class="btn btn-black rounded-5 mt-0 update" value="Update">
+            </form>
+        </div>
+        <div class="col-12 col-md-6">  
+            <h5>Order History</h5>
+            <div class="table-responsive rounded order-hist-table">
+                <table class="table">
+                    <thead>
+                        <tr class="order-hist-head">
+                            <th class="p-3">Order Number</th>
+                            <th class="p-3">Date</th>
+                            <th class="p-3">Order Amount</th>
+                        </tr>
+                    </thead>
+                    {% for order in orders %}
+                    <tr>
+                        <td class="p-3 w-25">
+                            <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}" class="order-hist-link">
+                                {{ order.order_number|truncatechars:6 }}
+                            </a>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">{{ order.date|truncatechars:11 }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">€{{ order.grand_total }}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+
+    {% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'profiles/js/country.js' %}"></script>
+    {% endblock %}

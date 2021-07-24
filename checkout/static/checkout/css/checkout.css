@@ -67,7 +67,15 @@ select:valid {
   background-color: #353333;
 }
 
-/* checkouot-success-page */
+.checkout-profile-link {
+  color: #ce1616;
+}
+
+.checkout-profile-link:hover {
+  color: #353333;
+}
+
+/* checkout-success-page */
 
 .checkout-success-page {
   margin-top: 200px;
@@ -77,4 +85,13 @@ select:valid {
 
 .checkout-table {
   padding-bottom: 50px;
+}
+
+.back-to-profile {
+  border-color: #353333;
+}
+
+.back-to-profile:hover {
+  color: #ce1616;
+  background-color: #353333;
 }

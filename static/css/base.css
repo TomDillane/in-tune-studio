@@ -22,7 +22,8 @@ body {
     padding-top: 15px;
 }
 
-.sm-link, .copyright-content {
+.sm-link,
+.copyright-content {
     color: #cfcbcb;
 }
 
@@ -36,32 +37,26 @@ body {
     z-index: 999;
     position: fixed;
     top: 165px;
-    right: 10px;    
+    right: 10px;
     color: #353333;
     font-family: 'Otomanopee One', sans-serif;
     font-size: small;
 }
 
-.close{
+.close {
     margin-left: 20px;
 }
-
-/*
-.toast-body {
-    color: #353333;
-    font-family: 'Otomanopee One', sans-serif;
-} */
 
 /* Products */
 
 .overlay {
     height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: #cfcbcb;
-	z-index: -1;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: #cfcbcb;
+    z-index: -1;
 }
 
 .product-page {
@@ -106,12 +101,12 @@ body {
     padding-bottom: 50px;
 }
 
-.cart-nav > a {
+.cart-nav>a {
     background-color: #353333;
     color: #cfcbcb
 }
 
-.cart-nav > a:hover {
+.cart-nav>a:hover {
     color: #ce1616;
 }
 
@@ -133,3 +128,39 @@ body {
     background-color: #353333;
 }
 
+/* auth */
+
+.auth-container {
+    padding-top: 170px;
+    padding-bottom: 70px;
+    font-family: 'Otomanopee One', sans-serif;
+}
+
+.auth-button,
+.allauth-form-inner-content button {
+    color: #353333;
+    margin-top: 10px;
+}
+
+.auth-button:hover,
+.allauth-form-inner-content button:hover {
+    color: #ce1616;
+    background-color: #353333;
+}
+
+.allauth-form-inner-content a {
+	color: #ce1616;
+}
+
+.allauth-form-inner-content a:hover {
+	color: #353333;
+}
+
+.remove {
+    border-color: #353333;
+}
+
+.remove:hover {
+    color: #ce1616;
+    background-color: #353333;
+}
