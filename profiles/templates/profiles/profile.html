@@ -27,7 +27,30 @@
         </div>
         <div class="col-12 col-md-6">  
             <h5>Order History</h5>
-            {{ orders }}
+            <div class="table-responsive rounded order-hist-table">
+                <table class="table">
+                    <thead>
+                        <tr class="order-hist-head">
+                            <th class="p-3">Order Number</th>
+                            <th class="p-3">Date</th>
+                            <th class="p-3">Total</th>
+                        </tr>
+                    </thead>
+                    {% for order in orders %}
+                    <tr>
+                        <td class="p-3 w-25">
+                            <p class="my-0">{{ order.order_number|truncatechars:4 }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">{{ order.date|truncatechars:11 }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">{{ order.grand_total }}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
     </div>
 
