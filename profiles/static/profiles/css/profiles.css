@@ -1,0 +1,27 @@
+.profile-page {
+    padding-top: 170px;
+    padding-bottom: 70px;
+    font-family: 'Otomanopee One', sans-serif;
+}
+
+.update {
+    border-color: #353333;
+}
+
+.update:hover {
+    color: #ce1616;
+    background-color: #353333;
+}
+
+#profile-update-form input::placeholder {
+    color: #979393;
+}
+
+#id_default_country,
+#id_default_country option:not(:first-child) {
+    color: #353333;
+}
+
+#id_default_country option:first-child {
+    color: #979393;
+}

@@ -134,15 +134,9 @@ body {
     background-color: #353333;
 }
 
-/* profile / auth */
+/* auth */
 
 .auth-container {
-    padding-top: 170px;
-    padding-bottom: 70px;
-    font-family: 'Otomanopee One', sans-serif;
-}
-
-.profile-page {
     padding-top: 170px;
     padding-bottom: 70px;
     font-family: 'Otomanopee One', sans-serif;
