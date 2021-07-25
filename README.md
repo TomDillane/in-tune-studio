@@ -54,6 +54,6 @@ In Tune Studio is a a recording studio that can be booked by music artists on a 
 + Photo by Wallace Chuck from Pexels for room 1 products.
 + Photo by cottonbro from Pexels for room 2 products.
 + Photo by RODNAE Productions from Pexels for room 3 products.
-+ Photo by Elviss Railijs Bitāns from Pexels on checkout page.
++ Photo by Stas Knop from Pexels where no product image selected.
 
 

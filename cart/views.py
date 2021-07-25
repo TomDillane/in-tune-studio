@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.contrib import messages
 from products.models import Product
+from checkout.models import OrderLineItem
 
 # Create your views here.
 
@@ -15,10 +16,17 @@ def add_to_cart(request, item_id):
     """ Add items to cart """
 
     date = request.POST.get('date')
+    roombooked = None
     product = get_object_or_404(Product, pk=item_id)
     qty = 0
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
+    order_line_date = OrderLineItem.objects.filter(product=roombooked, room_date=date)
+    
+    
+    if order_line_date:
+        messages.info(request, f'This room has already been reserved for this date! Please try another date!')
+        return redirect(redirect_url)											
 
 
     if item_id in list(cart.keys()):
