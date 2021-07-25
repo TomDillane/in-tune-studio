@@ -11,7 +11,11 @@
                 <div class="card-body text-center card-shade">
                     <h5 class="card-title">{{ product.name }}</h5>
                     <a href="{% url 'product_detail' product.id %}">
+                        {% if product.image %}
                         <img src="{{ product.image.url }}" class="card-img-top image-holder" alt="{{ product.name }}">
+                        {% else %}
+                        <img src="{% get_media_prefix %}default.jpg" class="card-img-top image-holder" alt="{{ product.name }}">
+                        {% endif %}
                     </a>
                     <p class="card-text">{{ product.description }}</p>
                     <p class="card-text">€{{ product.price }}</p>

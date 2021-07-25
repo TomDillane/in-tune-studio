@@ -9,10 +9,12 @@
         <div class="col-12 col-md-3 offset-md-2">
             <div class="card mb-3">
                 <div class="image-container">
-                    <a href="{{ product.image.url }}" target="_blank">
-                        <img src="{{ product.image.url }}" class="card-img-top image-holder-det"
-                            alt="{{ product.name }}">
-                    </a>
+                    {% if product.image %}
+                    <img src="{{ product.image.url }}" class="card-img-top image-holder-det" alt="{{ product.name }}">
+                    {% else %}
+                    <img src="{% get_media_prefix %}default.jpg" class="card-img-top image-holder-det"
+                        alt="{{ product.name }}">
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -26,7 +28,8 @@
                     <div class="form-row">
                         <div class="col-12 col-md-3">
                             <div class="input-group date" data-provide="datepicker">
-                                <input type="text" class="form-control" data-item_id="{{ product.id }}" id="datepicker" name="date">
+                                <input type="text" class="form-control" data-item_id="{{ product.id }}" id="datepicker"
+                                    name="date">
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-th"></span>
                                 </div>
