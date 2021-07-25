@@ -59,6 +59,10 @@ body {
     z-index: -1;
 }
 
+.product-details {
+   margin-top: 70px;
+}
+
 .product-page {
     margin-top: 200px;
     padding-bottom: 60px;
@@ -98,7 +102,8 @@ body {
 }
 
 .cart-table {
-    padding-bottom: 50px;
+    padding-bottom: 70px;
+    overflow-x: hidden;
 }
 
 .cart-nav>a {
@@ -166,6 +171,12 @@ body {
 }
 
 #file-upload-button {
+    color: #ce1616;
+    background-color: #353333;
+}
+
+.add-to-cart:hover,
+.other-rooms:hover {
     color: #ce1616;
     background-color: #353333;
 }

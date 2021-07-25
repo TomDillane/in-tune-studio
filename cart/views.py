@@ -16,15 +16,19 @@ def add_to_cart(request, item_id):
     """ Add items to cart """
 
     date = request.POST.get('date')
-    roombooked = None
     product = get_object_or_404(Product, pk=item_id)
     qty = 0
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
-    order_line_date = OrderLineItem.objects.filter(product=roombooked, room_date=date)
+    
+    order_line_date = OrderLineItem.objects.filter(room_date=date)
+    room_date = OrderLineItem.objects.filter(product=product)
+    # order_line_date = get_object_or_404(OrderLineItem, room_date=date)
+    print(order_line_date)
+    print(room_date)
     
     
-    if order_line_date:
+    if order_line_date and room_date:
         messages.info(request, f'This room has already been reserved for this date! Please try another date!')
         return redirect(redirect_url)											
 
@@ -52,15 +56,11 @@ def remove_from_cart(request, item_id):
     try:
         product = get_object_or_404(Product, pk=item_id)
         cart = request.session.get('cart', {})
-        print("Cart", cart)
         date = request.POST.get('date-booked')
     
 
         if date in cart[item_id]['items_by_date'].values():
-            print(date)
-            print(cart[item_id]['items_by_date'].values())
             del cart[item_id]['items_by_date'][date]
-            print(cart)
             messages.success(request, f'{product.name} booked for {date} removed from your order!')
 
 
