@@ -17,17 +17,13 @@
                                 <table class="table">
                                         <thead>
                                                 <tr class="cart-head">
-                                                        <th class="p-3">Name</th>
                                                         <th class="p-3">Room</th>
                                                         <th class="p-3">Date</th>
-                                                        <th class="p-3">Total</th>
+                                                        <th class="p-3">Remove</th>
                                                 </tr>
                                         </thead>
                                         {% for item in cart_items %}
                                         <tr>
-                                                <td class="p-3 w-25">
-                                                        <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                                                </td>
                                                 <td class="py-3">
                                                         <img class="img-fluid rounded cart-im-size"
                                                                 src="{{ item.product.image.url }}"
@@ -54,14 +50,17 @@
                                         {% endfor %}
                                 </table>
                                 <div class="row">
-                                        <div class="col-12 text-center">
-                                                <a href="{% url 'checkout' %}" class="btn btn-black rounded-5 secure-outline">
-                                                        <span>€{{ grand_total|floatformat:2 }}</span>
-                                                        <span class="text-uppercase">| Proceed To Pay</span>
+                                        <div class="col-6 text-left">
+                                                <a href="{% url 'checkout' %}"
+                                                        class="btn btn-black rounded-5 secure-outline">
+                                                        <span class="">Checkout</span>
                                                         <span class="icon">
                                                                 <i class="fas fa-lock"></i>
                                                         </span>
                                                 </a>
+                                        </div>
+                                        <div class="col-6 text-right">
+                                                <h4 class="total">Total: €{{ grand_total|floatformat:2 }}</h4>
                                         </div>
                                 </div>
                         </div>

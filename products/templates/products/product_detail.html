@@ -39,8 +39,8 @@
                         <div class="col-12">
                             {% if request.user.is_superuser %}
                             <a href="{% url 'edit_product' product.id %}"
-                                class="btn btn-outline-black rounded-0 mt-5">Edit</a>
-                            <a class="btn btn-outline-black rounded-0 mt-5"
+                                class="btn btn-outline-dark rounded-0 mt-5 edit-room">Edit</a>
+                            <a class="btn btn-outline-dark rounded-0 mt-5 del-room"
                                 href="{% url 'delete_product' product.id %}">Delete</a>
                             {% else %}
                             <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 mt-5 other-rooms">
