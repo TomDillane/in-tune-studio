@@ -39,8 +39,14 @@
                             <p class="my-0">{{ item.room_date }}</p>
                         </td>
                         <td class="py-3">
-                            <div class="col-4"><img src="{{ item.product.image.url }}" class="checkout-line-item"
-                                    alt="{{ item.product.name }}"></div>
+                            <div class="col-4">
+                                {% if item.product.image %}
+                                <img src="{{ item.product.image.url }}" class="checkout-line-item"
+                                    alt="{{ item.product.name }}">
+                                {% else %}
+                                <img src="{% get_media_prefix %}default.jpg" class="checkout-line-item"
+                                    alt="{{ product.name }}">
+                                {% endif %}
                         </td>
                     </tr>
                     {% endfor %}
@@ -59,5 +65,4 @@
         </div>
     </div>
 </div>
-    {% endblock %}
-
+{% endblock %}
