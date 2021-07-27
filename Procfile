@@ -1,0 +1,1 @@
+web: gunicorn in_tune_studio.wsgi:application

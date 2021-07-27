@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-a#uehoc(-2g(scbbq*mis*t6busr!a5nu5()7&fny_!w9igw_p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['intunestudio.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -117,16 +117,17 @@ WSGI_APPLICATION = 'in_tune_studio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
-
-#DATABASES = {
- #   'default': dj_database_url.parse('postgres://akhuwmrwpgieyc:39def3a714fffaecba53e251483d270083f96f87982e02685412d87002a8b09c@ec2-54-155-35-88.eu-west-1.compute.amazonaws.com:5432/d9tft5p2ro71ag')
-#}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

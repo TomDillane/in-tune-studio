@@ -56,12 +56,20 @@
     </div>
     <div class="row">
         <div class="col-12 text-center">
+            {% if from_profile %}
+            <a href="{% url 'profile' %}" class="btn btn-outline-dark rounded-0 mt-5 other-rooms">
+                <span class="icon">
+                    <i class="fas fa-user"></i>
+                </span>
+                <span class="other-rooms">Back to Profile</span>
+            {% else %}
             <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 mt-5 other-rooms">
                 <span class="icon">
                     <i class="fas fa-headphones"></i>
                 </span>
                 <span class="other-rooms">Other Rooms</span>
             </a>
+            {% endif %}
         </div>
     </div>
 </div>
