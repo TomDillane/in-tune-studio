@@ -21,15 +21,24 @@ def add_to_cart(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
     
-    order_line_date = OrderLineItem.objects.filter(room_date=date)
-    room_date = OrderLineItem.objects.filter(product=product)
+    # order_line_date = OrderLineItem.objects.filter(room_date=date)
+    # room_date = OrderLineItem.objects.filter(product=product)
     # order_line_date = get_object_or_404(OrderLineItem, room_date=date)
-    print(order_line_date)
-    print(room_date)
+    # print(order_line_date)
+    # print(room_date)
     
     
-    if order_line_date and room_date:
-        messages.info(request, f'This room has already been reserved for this date! Please try another date!')
+    if date and item_id:
+        order_line_date = OrderLineItem.objects.filter(
+            room_date=date,
+            product=item_id
+        )
+    else:
+        return redirect(redirect_url)
+
+    if order_line_date:
+        messages.info(
+            request, f'This room has already been reserved for this date! Please try another date!')
         return redirect(redirect_url)											
 
 
