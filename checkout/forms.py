@@ -2,6 +2,7 @@ from django import forms
 from .models import Order
 
 
+# order form
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
@@ -10,11 +11,8 @@ class OrderForm(forms.ModelForm):
                   'town_or_city', 'postcode', 'country',
                   'county',)
 
+    # set placeholders and class
     def __init__(self, *args, **kwargs):
-        """
-        Add placeholders and classes, remove auto-generated
-        labels and set autofocus on first field
-        """
         super().__init__(*args, **kwargs)
         placeholders = {
             'full_name': 'Full Name',
@@ -29,6 +27,7 @@ class OrderForm(forms.ModelForm):
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True
+        # looks up country as CountryField used from django
         for field in self.fields:
             if field != 'country':
                 if self.fields[field].required:

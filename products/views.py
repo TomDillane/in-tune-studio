@@ -5,8 +5,8 @@ from .models import Product
 from .forms import ProductForm
 
 
+# studio room options
 def studio_products(request):
-    """ View to return products offered by the studio """
 
     products = Product.objects.all()
 
@@ -17,8 +17,8 @@ def studio_products(request):
     return render(request, 'products/products.html', context)
 
 
+# move into specific room to book
 def product_detail(request, product_id):
-    """ View to return specific product """
 
     product = get_object_or_404(Product, pk=product_id)
 
@@ -29,19 +29,22 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 
+#  owner can add new room
 @login_required
 def add_product(request):
-    """ Add a room to studio options """
+    # checks if user is owner
     if not request.user.is_superuser:
         messages.error(request, 'Reserved for In Tune Studio use!')
         return redirect(reverse('home'))
 
+    # if form good, adds room
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             product = form.save()
             messages.success(request, 'Room added to studio!')
             return redirect(reverse('product_detail', args=[product.id]))
+        # handles if form error
         else:
             messages.error(request, 'Please review the form detail.')
     else:
@@ -54,13 +57,15 @@ def add_product(request):
     return render(request, template, context)
 
 
+# owner can update room detail
 @login_required
 def edit_product(request, product_id):
-    """ Edit details of a room """
+    # checks if user is owner
     if not request.user.is_superuser:
         messages.error(request, 'Reserved for In Tune Studio use!')
         return redirect(reverse('home'))
-    
+
+    # allows update if form is good
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -68,6 +73,7 @@ def edit_product(request, product_id):
             form.save()
             messages.success(request, 'Room updated!')
             return redirect(reverse('product_detail', args=[product.id]))
+        # handles if form error
         else:
             messages.error(request, 'Please review the form detail.')
     else:
@@ -83,13 +89,14 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+# owner can update room detail
 @login_required
 def delete_product(request, product_id):
-    """ Delete a room """
+    # checks if user is owner
     if not request.user.is_superuser:
         messages.error(request, 'Reserved for In Tune Studio use!')
         return redirect(reverse('home'))
-    
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Room removed!')

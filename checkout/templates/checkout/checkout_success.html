@@ -39,8 +39,14 @@
                             <p class="my-0">{{ item.room_date }}</p>
                         </td>
                         <td class="py-3">
-                            <div class="col-4"><img src="{{ item.product.image.url }}" class="checkout-line-item"
-                                    alt="{{ item.product.name }}"></div>
+                            <div class="col-4">
+                                {% if item.product.image %}
+                                <img src="{{ item.product.image.url }}" class="checkout-line-item"
+                                    alt="{{ item.product.name }}">
+                                {% else %}
+                                <img src="{% get_media_prefix %}default.jpg" class="checkout-line-item"
+                                    alt="{{ product.name }}">
+                                {% endif %}
                         </td>
                     </tr>
                     {% endfor %}
@@ -50,14 +56,13 @@
     </div>
     <div class="row">
         <div class="col-12 text-center">
-            <a href="{% url 'profile' %}" class="btn back-to-profile rounded-0 my-2">
-                <span class="icon mr-2">
-                    <i class="fas fa-user"></i>
+            <a href="{% url 'products' %}" class="btn btn-outline-dark rounded-0 mt-5 other-rooms">
+                <span class="icon">
+                    <i class="fas fa-headphones"></i>
                 </span>
-                <span class="text-uppercase">Back to Profile</span>
+                <span class="other-rooms">Other Rooms</span>
             </a>
         </div>
     </div>
 </div>
-    {% endblock %}
-
+{% endblock %}
