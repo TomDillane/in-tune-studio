@@ -2,6 +2,7 @@ from django import forms
 from .models import Product
 
 
+# for owner adding products
 class ProductForm(forms.ModelForm):
 
     class Meta:

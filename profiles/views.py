@@ -5,15 +5,19 @@ from .forms import UserProfileForm
 from django.contrib import messages
 from checkout.models import Order
 
+
+# user profile, user must be logged in
 @login_required
 def profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
 
+    # updates profile if form good
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated!')
+        # handles form issues
         else:
             messages.error(request, 'Please review form details!')
     else:
@@ -29,6 +33,7 @@ def profile(request):
     return render(request, template, context)
 
 
+# order history of user
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 

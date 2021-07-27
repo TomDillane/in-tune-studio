@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (render, redirect,
+                              reverse, get_object_or_404, HttpResponse)
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from products.models import Product
@@ -14,6 +14,7 @@ import stripe
 import json
 
 
+# gather cart data and user
 @require_POST
 def cache_checkout_data(request):
     try:
@@ -31,13 +32,16 @@ def cache_checkout_data(request):
         return HttpResponse(content=e, status=400)
 
 
+# checkout
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
+    # get cart
     if request.method == 'POST':
         cart = request.session.get('cart', {})
 
+        # get user data from form
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -50,36 +54,43 @@ def checkout(request):
             'county': request.POST['county'],
         }
         order_form = OrderForm(form_data)
+        # save data if valid
         if order_form.is_valid():
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
             order.save()
+            # iterate over cart items to create order line item
             for item_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    for date, qty in item_data['items_by_date'].items():
+                    for reserve, qty in item_data['items_by_date'].items():
                         order_line_item = OrderLineItem(
                             order=order,
                             product=product,
-                            room_date=date,
+                            room_date=reserve,
                         )
                         order_line_item.save()
+                # handles if product is not found
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your bag wasn't found in our database. "
+                        "One of the products in your bag \
+                            wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_cart'))
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
+        # handles if form has issues
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
+    # gets cart with items
     else:
         cart = request.session.get('cart', {})
+        # tells user cart is empty
         if not cart:
             messages.error(request, 'You have an empty cart right now.')
             return redirect(reverse('products'))
@@ -92,7 +103,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        
+
         # checks if user is logged in
         # if yes, takes details from profile, if profile exists
         # populates form with details
@@ -116,6 +127,7 @@ def checkout(request):
         else:
             order_form = OrderForm()
 
+    # alerts the user if key is missing
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
@@ -130,17 +142,19 @@ def checkout(request):
     return render(request, template, context)
 
 
+# after checkout
 def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-    
+
+    # checks if user logged in
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        # Inclue user profile with the order
+        # Include user profile with the order
         order.user_profile = profile
         order.save()
 
-        # Save user detail
+        # Save user detail if save box checked
         if save_info:
             profile_data = {
                 'default_phone_number': order.phone_number,
@@ -155,6 +169,7 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
+    # empties cart after
     if 'cart' in request.session:
         del request.session['cart']
 
