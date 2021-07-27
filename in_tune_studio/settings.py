@@ -117,16 +117,16 @@ WSGI_APPLICATION = 'in_tune_studio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
 DATABASES = {
-    'default': dj_database_url.parse('postgres://akhuwmrwpgieyc:39def3a714fffaecba53e251483d270083f96f87982e02685412d87002a8b09c@ec2-54-155-35-88.eu-west-1.compute.amazonaws.com:5432/d9tft5p2ro71ag')
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+#DATABASES = {
+ #   'default': dj_database_url.parse('postgres://akhuwmrwpgieyc:39def3a714fffaecba53e251483d270083f96f87982e02685412d87002a8b09c@ec2-54-155-35-88.eu-west-1.compute.amazonaws.com:5432/d9tft5p2ro71ag')
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
