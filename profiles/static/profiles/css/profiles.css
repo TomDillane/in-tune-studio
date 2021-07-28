@@ -4,6 +4,10 @@
     font-family: 'Otomanopee One', sans-serif;
 }
 
+.profile-update-form {
+    padding-bottom: 20px;
+}
+
 .update {
     border-color: #353333;
 }
