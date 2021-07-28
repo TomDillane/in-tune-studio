@@ -1,6 +1,9 @@
 # In Tune Studio
 
 In Tune Studio is a a recording studio that can be booked by music artists on a day by day basis. 
+The owner will be able to make updates to the room rates and details along with adding rooms.
+Once a room is booked for a particular date, it cannot be booked  by another user. 
+Users will be able to review their profiles and make updates.
 
 ## UX - User Experience
 
@@ -8,7 +11,7 @@ In Tune Studio is a a recording studio that can be booked by music artists on a 
 
 ##### Anonymous User
 
-+ Ability to learn about the services the site offers
++ Ability to quickly gather what the site is about.
 + Ability to sign up to the site as a member
 + Ability to navigate around the site
 + Ability to view products
@@ -40,13 +43,40 @@ In Tune Studio is a a recording studio that can be booked by music artists on a 
 
 ### Structure Plane
 
-+ The site will have a home page with information on the studio.
-+ The site will have a shop page with a list of option.
+#### Front End
+
++ The site will have a home page with a call out to use the studio.
++ The site will have a booking page with room options.
 + Anonymous and registered users can buy services.
 + Anonymous users can register.
 + Register and Login options will only be available to anonymous users.
 + Log out option will only be available to signed in users.
-+ Site owner will be able to add, update and delete products.
++ Site owner only will be able to add, update and delete products.
+
+##### Wireframes
+
++ [Home Wireframe](readme_images/home.png)
++ [Rooms Wireframe](readme_images/rooms.png)
++ [Room Booking Wireframe](readme_images/room-booking.png)
++ [Cart Wireframe](readme_images/cart.png)
++ [Checkout Wireframe](readme_images/checkout.png)
++ [Checkout Success Wireframe](readme_images/checkout-success.png)
++ [Login Wireframe](readme_images/login.png)
++ [Register Wireframe](readme_images/register.png)
++ [Profile Wireframe](readme_images/profile.png)
++ [Room Add Wireframe](readme_images/room-add.png)
++ [Room Edit Wireframe](readme_images/room-edit.png)
++ [Room Edit Detail Wireframe](readme_images/room-edit-detail.png)
+
+#### Backend
+
+##### Field detail
+
+[Database Models](readme_images/database.png)
+
+##### Relationships
+
+[Database relationships](readme_images/database-schema.png)
 
 ## Credits
 

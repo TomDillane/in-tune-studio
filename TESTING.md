@@ -15,7 +15,33 @@ No issues.
 
 Three warnings. Decision to accept.
 
+### PEP8 Validator
+
+No issues.
+
 ## Site Performance
+
+I used Chrome Developer tools to test performance, namely Lighthouse.
+
+### Performance
+
+Overall performance was good. It dropped on the rooms page due to images. I will look to address this with more time.
+
+### Accessibility
+
+Accessibility scored well across pages.
+
+### Best Practises
+
+Best practises were adhered to and reflected in the score.
+
+### SEO
+
+Score not as high as previous items but acceptable for the business purpose. 
+
+## Device Testing
+
+The site was tested across multiple browsers and devices. No issues in content or performance.
 
 ## User Story Testing
 
