@@ -31,7 +31,6 @@ def cart_contents(request):
             })
             # print(cart_items)
 
-
     grand_total = total
 
     context = {
