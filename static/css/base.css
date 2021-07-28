@@ -125,6 +125,10 @@ body {
     font-family: 'Otomanopee One', sans-serif;
 }
 
+.product-det-page {
+    padding-bottom: 80px;
+}
+
 .image-holder {
     height: 500px;
     width: auto;
