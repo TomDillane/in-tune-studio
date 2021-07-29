@@ -55,6 +55,8 @@ The site was tested across multiple browsers and devices. No issues in content o
 + Actual result - can purchase room date without registration
 + Expected to prevent double booking
 + Actual result - once room is booked for a date, it is unavailable to others
++ Expected to be able to remove room date booking from cart
++ Actual result - on clicking 'Remove', selected date was removed and cart total updated
 
 ##### Registered User
 
@@ -122,6 +124,8 @@ The site was tested across multiple browsers and devices. No issues in content o
 + All links open in a new tab
 + No reliance on browser back button
 + Messages display until user closes
++ The site is repsonsive across different devices including large screen, desktop, mobile and tablet
++ Each user type has been tested as above for ability to perform functions and restrictions
 
 
 
